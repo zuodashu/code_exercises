@@ -4,8 +4,8 @@ using namespace std;
 template<class T>
 struct Node{
       T data;
-      Node *next;
-      node(T data_): data(data_),next(NULL){}
+      Node<T> *next;
+      Node(T data_): data(data_),next(NULL){}
 };
 
 template<class T>
@@ -13,18 +13,20 @@ class stack{
   Node<T> top;
 public:
   //Node<T> stack(){top=0;};
-  Node<T> pop(){
-    if (top !=0){
-       T item=top.data;
-       top=top.next;
-       return item;
-     }
-    return 0;
+  stack(){top=NULL;}
+  T pop() {
+      if(top == NULL)
+               throw exception();//
+          Node<T> * temp = top;
+          top = top->next;
+          T  result= temp->val;
+          delete temp;
+          return result;    
     }
-void push (T item){
-  Node<T> t=new Node<T>(item);
-    t.next=top;
-    top=t;
+ void push (T item){
+  Node<T> * t = new Node<T>(item);//corrected by bird
+    t->next = top;
+    top = t;
    }
 };
 /**/
