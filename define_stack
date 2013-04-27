@@ -10,7 +10,7 @@ struct Node{
 
 template<class T>
 class stack{
-  Node<T> top;
+  Node<T> *top;
 public:
   //Node<T> stack(){top=0;};
   stack(){top=NULL;}
@@ -19,7 +19,7 @@ public:
                throw exception();//
           Node<T> * temp = top;
           top = top->next;
-          T  result= temp->val;
+          T  result= temp->data;
           delete temp;
           return result;    
     }
@@ -38,6 +38,6 @@ int main(){
 
    stack<int> my_stack;
    my_stack.push(3);
-   my_stack.pop();
+   cout<<my_stack.pop()<<endl;
 }
 
