@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+/*
+ * just put a together , then check if b is a substring of a+a
+ */
+ 
+bool is_substring(char *a,char *b){
+    if (!a||!b){
+        return false;
+    }
+    
+}
+bool is_rotation_string(char *a, char *b){
+    if (!a||!b){
+        return false;
+    }
+    if (strlen(a)!=strlen(b)){
+        return false;
+    }
+
+} 
+    
+    
+    
+    
+int main() {
+
+  char *a = "ab",*b="deab";
+	cout<<is_rotation_string(a,b)<<endl;
+
+}
