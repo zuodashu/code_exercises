@@ -1,0 +1,39 @@
+#include <iostream>
+#include <list>
+using namespace std;
+/*
+ * 
+ */
+template<class T>
+list<T> find_nth_fromend(list<T> &li,int n){
+    typename list<T>::iterator p1;
+    typename list<T>::iterator p2;
+    p1=li.begin(); p2=p1;
+    for (int i=0;i<n;i++){
+        p1=p1->next;
+    }
+    while (p1->next!=NULL){
+        p2=p2->next;
+        p1=p1->next;
+    }
+    return p1;
+    
+    
+}
+    
+    
+    
+    
+int main() {
+
+    MySinglyLinkedList<int> lst;
+
+  int n = 10;
+
+	for (int i = 0; i < 10; i++)
+		lst.push_back(i);
+
+	cout << "The " << n << "th to the last element is: "
+			<< *nth_to_last_func(lst, n) << endl;
+
+}
